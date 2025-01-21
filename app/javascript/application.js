@@ -3,5 +3,7 @@ import "@hotwired/turbo-rails"
 import "controllers"
 import "trix"
 import "@rails/actiontext"
+import { Turbo } from "@hotwired/turbo-rails";
+import "./toggle_menu";
 
 

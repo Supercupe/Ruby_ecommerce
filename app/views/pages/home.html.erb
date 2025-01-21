@@ -1,0 +1,183 @@
+<%= render "header" %>
+
+<main>
+
+  <!-- Hero section -->
+  <div class="relative isolate pt-0">
+    <svg class="absolute inset-0 -z-10 size-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]" aria-hidden="true">
+      <defs>
+        <pattern id="83fd4e5a-9d52-42fc-97b6-718e5d7ee527" width="200" height="200" x="50%" y="-1" patternUnits="userSpaceOnUse">
+          <path d="M100 200V.5M.5 .5H200" fill="none" />
+        </pattern>
+      </defs>
+      <svg x="50%" y="-1" class="overflow-visible fill-gray-50">
+        <path d="M-100.5 0h201v201h-201Z M699.5 0h201v201h-201Z M499.5 400h201v201h-201Z M-300.5 600h201v201h-201Z" stroke-width="0" />
+      </svg>
+      <rect width="100%" height="100%" stroke-width="0" fill="url(#83fd4e5a-9d52-42fc-97b6-718e5d7ee527)" />
+    </svg>
+    <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:flex lg:items-center lg:gap-x-10 lg:px-8 lg:py-32"> <!-- Reduced padding -->
+      <div class="mx-auto max-w-2xl lg:mx-0 lg:flex-auto">
+        <h1 class="mt-10 text-pretty text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl"><%= t "Title" %></h1>
+        <p class="mt-8 text-pretty text-lg font-medium text-gray-500 sm:text-xl/8"><%= t "Description" %></p>
+        <div class="mt-10 flex items-center gap-x-6">
+        <%= link_to products_path, class:"rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" do %>
+          <%= t "Purchase_Button" %>
+        <% end %>
+        <%= link_to about_path, class: "text-sm font-semibold text-gray-900" do %>
+          <%= t "Learn_Button" %><span aria-hidden="true">→</span>
+        <% end %>
+        </div>
+      </div>
+      <svg viewBox="0 0 500 800" role="img" class="mx-auto max-w-full drop-shadow-xl">
+        <title>Logo</title>
+        <defs>
+          <clipPath id="logo-clip">
+            <rect width="450" height="550" rx="36" />
+          </clipPath>
+        </defs>
+        <foreignObject width="450" height="650" transform="translate(25 25)" clip-path="url(#logo-clip)">
+          <img src="<%= asset_path('product.jpg') %>" alt="Logo" class="w-full h-full object-contain" />
+        </foreignObject>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Feature section -->
+  <div class="mx-auto mt-8 max-w-7xl px-6 sm:mt-4 lg:px-8"> <!-- Reduced margin-top from mt-16 to mt-8 -->
+    <div class="mx-auto max-w-2xl lg:text-center">
+      <p class="mt-2 text-pretty text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl lg:text-balance">Everything you need to deploy your app</p>
+      <p class="mt-6 text-lg/8 text-gray-600">Quis tellus eget adipiscing convallis sit sit eget aliquet quis. Suspendisse eget egestas a elementum pulvinar et feugiat blandit at. In mi viverra elit nunc.</p>
+    </div>
+    <div class="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+      <dl class="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
+        <div class="flex flex-col">
+          <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900">
+            <svg class="size-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+              <path fill-rule="evenodd" d="M5.5 17a4.5 4.5 0 0 1-1.44-8.765 4.5 4.5 0 0 1 8.302-3.046 3.5 3.5 0 0 1 4.504 4.272A4 4 0 0 1 15 17H5.5Zm3.75-2.75a.75.75 0 0 0 1.5 0V9.66l1.95 2.1a.75.75 0 1 0 1.1-1.02l-3.25-3.5a.75.75 0 0 0-1.1 0l-3.25 3.5a.75.75 0 1 0 1.1 1.02l1.95-2.1v4.59Z" clip-rule="evenodd" />
+            </svg>
+            Push to deploy
+          </dt>
+          <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600">
+            <p class="flex-auto">Commodo nec sagittis tortor mauris sed. Turpis tortor quis scelerisque diam id accumsan nullam tempus. Pulvinar etiam lacus volutpat eu. Phasellus praesent ligula sit faucibus.</p>
+            <p class="mt-6">
+              <a href="#" class="text-sm/6 font-semibold text-indigo-600">Learn more <span aria-hidden="true">→</span></a>
+            </p>
+          </dd>
+        </div>
+        <div class="flex flex-col">
+          <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900">
+            <svg class="size-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+              <path fill-rule="evenodd" d="M10 1a4.5 4.5 0 0 0-4.5 4.5V9H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-.5V5.5A4.5 4.5 0 0 0 10 1Zm3 8V5.5a3 3 0 1 0-6 0V9h6Z" clip-rule="evenodd" />
+            </svg>
+            SSL certificates
+          </dt>
+          <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600">
+            <p class="flex-auto">Pellentesque enim a commodo malesuada turpis eleifend risus. Facilisis donec placerat sapien consequat tempor fermentum nibh.</p>
+            <p class="mt-6">
+              <a href="#" class="text-sm/6 font-semibold text-indigo-600">Learn more <span aria-hidden="true">→</span></a>
+            </p>
+          </dd>
+        </div>
+        <div class="flex flex-col">
+          <dt class="flex items-center gap-x-3 text-base/7 font-semibold text-gray-900">
+            <svg class="size-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+              <path fill-rule="evenodd" d="M15.312 11.424a5.5 5.5 0 0  1-9.201 2.466l-.312-.311h2.433a.75.75 0 0 0 0-1.5H3.989a.75.75 0 0 0-.75.75v4.242a.75.75 0 0 0 1.5 0v-2.43l.31.31a7 7 0 0 0 11.712-3.138.75.75 0 0 0-1.449-.39Zm1.23-3.723a.75.75 0 0 0 .219-.53V2.929a.75.75 0 0 0-1.5 0V5.36l-.31-.31A7 7 0 0 0 3.239 8.188a.75.75 0 1 0 1.448.389A5.5 5.5 0 0 1 13.89 6.11l.311.31h-2.432a.75.75 0 0 0 0 1.5h4.243a.75.75 0 0 0 .53-.219Z" clip-rule="evenodd" />
+            </svg>
+            Simple queues
+          </dt>
+          <dd class="mt-4 flex flex-auto flex-col text-base/7 text-gray-600">
+            <p class="flex-auto">Pellentesque sit elit congue ante nec amet. Dolor aenean curabitur viverra suspendisse iaculis eget. Nec mollis placerat ultricies euismod ut condimentum.</p>
+            <p class="mt-6">
+              <a href="#" class="text-sm/6 font-semibold text-indigo-600">Learn more <span aria-hidden="true">→</span></a>
+            </p>
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </div> 
+
+    <!-- Newsletter section -->
+    <div class="mx-auto mt-32 max-w-7xl sm:mt-56 sm:px-6 lg:px-8">
+      <div class="relative isolate overflow-hidden bg-gray-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32">
+        <h2 class="mx-auto max-w-3xl text-center text-4xl font-semibold tracking-tight text-white sm:text-5xl">Get notified when we’re launching</h2>
+        <p class="mx-auto mt-6 max-w-lg text-center text-lg text-gray-300">Reprehenderit ad esse et non officia in nulla. Id proident tempor incididunt nostrud nulla et culpa.</p>
+        <form class="mx-auto mt-10 flex max-w-md gap-x-4">
+          <label for="email-address" class="sr-only">Email address</label>
+          <input id="email-address" name="email" type="email" autocomplete="email" required class="min-w-0 flex-auto rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-white sm:text-sm/6" placeholder="Enter your email">
+          <button type="submit" class="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">Notify me</button>
+        </form>
+        <svg viewBox="0 0 1024 1024" class="absolute left-1/2 top-1/2 -z-10 size-[64rem] -translate-x-1/2" aria-hidden="true">
+          <circle cx="512" cy="512" r="512" fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fill-opacity="0.7" />
+          <defs>
+            <radialGradient id="759c1415-0410-454c-8f7c-9a820de03641" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(512 512) rotate(90) scale(512)">
+              <stop stop-color="#7775D6" />
+              <stop offset="1" stop-color="#E935C1" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Video Section -->
+    <div class="relative isolate mt-32 sm:mt-16 sm:pt-32">
+      <!-- Background Patterns -->
+      <svg class="absolute inset-0 -z-10 hidden h-full w-full stroke-gray-200 [mask-image:radial-gradient(64rem_64rem_at_top,white,transparent)] sm:block" aria-hidden="true">
+        <defs>
+          <pattern id="pattern-bg" width="200" height="200" x="50%" y="0" patternUnits="userSpaceOnUse">
+            <path d="M.5 200V.5H200" fill="none" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#pattern-bg)" />
+      </svg>
+    
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <!-- Section Heading -->
+        <div class="mx-auto max-w-2xl text-center">
+          <h2 class="text-base font-semibold text-indigo-600">Testimonials</h2>
+          <p class="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+            We have worked with thousands of amazing people
+          </p>
+        </div>
+    
+        <!-- Main Video -->
+        <div class="relative mt-10" style="padding-top: 56.25%">
+          <iframe 
+            src="https://player.vimeo.com/video/1044269050?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+            class="absolute inset-0 w-full h-full rounded-lg shadow-lg" 
+            frameborder="0" 
+            allow="autoplay; fullscreen; picture-in-picture" 
+            allowfullscreen>
+          </iframe>
+        </div>
+    
+        <!-- Thumbnail Videos -->
+        <div class="mt-10 grid gap-4 sm:grid-cols-2">
+          <div class="relative" style="padding-top: 56.25%">
+            <iframe 
+              src="https://player.vimeo.com/video/1044269050?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+              class="absolute inset-0 w-full h-full rounded-lg shadow-md hover:shadow-lg transition-shadow" 
+              frameborder="0" 
+              allow="autoplay; fullscreen; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+          <div class="relative" style="padding-top: 56.25%">
+            <iframe 
+              src="https://player.vimeo.com/video/1044269050?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" 
+              class="absolute inset-0 w-full h-full rounded-lg shadow-md hover:shadow-lg transition-shadow" 
+              frameborder="0" 
+              allow="autoplay; fullscreen; picture-in-picture" 
+              allowfullscreen>
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      </div>
+    </div>
+<%= render "footer" %>
+  </main>
+
+  
+

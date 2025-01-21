@@ -1,19 +1,45 @@
-<div id="<%= dom_id product %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Name:</strong>
-    <%= product.name %>
+<div class="mx-auto mt-16 max-w-7xl px-6 sm:mt-22 lg:px-4">
+
+<div class="rounded-3xl p-8 ring-1 ring-gray-200 mx-auto max-w-md">
+  <h2 id="tier-freelancer" class="text-lg font-semibold text-gray-900"><%= product.name %></h2>
+  <p class="mt-4 text-sm text-gray-600"><%= product.description %></p>
+  <p class="mt-6 flex items-baseline gap-x-1">
+    <span class="text-4xl font-semibold tracking-tight text-gray-900">€ <%= product.price %></span>
+    <span class="text-sm font-semibold text-gray-600">/2 min</span>
   </p>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Price:</strong>
-    <%= product.price %>
+  <%= link_to "Objednat", new_product_purchase_path(product_id: product.id), data: { turbo: false}, 
+    aria: { describedby: "tier-freelancer" }, 
+    class: "mt-6 block rounded-md px-3 py-2 text-center text-sm font-semibold text-indigo-600 ring-1 ring-inset ring-indigo-200 hover:ring-indigo-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" %>
+  
+  <ul role="list" class="mt-8 space-y-3 text-sm text-gray-600">
+    <li class="flex gap-x-3">
+      <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+      </svg>
+    <%= product.description_1%>
+    </li>
+    <li class="flex gap-x-3">
+      <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+      </svg>
+    <%= product.description_2%>
+    </li>
+    <li class="flex gap-x-3">
+      <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+      </svg>
+    <%= product.description_3%>
+    </li>
+    <li class="flex gap-x-3">
+      <svg class="h-6 w-5 flex-none text-indigo-600" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true" data-slot="icon">
+        <path fill-rule="evenodd" d="M16.704 4.153a.75.75 0 0 1 .143 1.052l-8 10.5a.75.75 0 0 1-1.127.075l-4.5-4.5a.75.75 0 0 1 1.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 0 1 1.05-.143Z" clip-rule="evenodd" />
+      </svg>
+    <%= product.description_4%>
+  </li>
+</ul>
+<% if current_admin%>
+  <p>
+    <%= link_to "Show this product", product, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
   </p>
-
-  <%= link_to "Purchase", new_product_purchase_path(product), class: "bg-green-500 p-2 rounded-lg"%>
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Description:</strong>
-    <%= product.description %>
-  </p>
-
+<% end %>
 </div>

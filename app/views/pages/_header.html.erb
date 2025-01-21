@@ -1,0 +1,81 @@
+<div class="bg-white">
+  <!-- Header -->
+  <header class="absolute inset-x-0 top-0 z-50">
+    <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <div class="flex lg:flex-1">
+        <%= link_to root_path, class: "-m-1.5 p-1.5" do %>
+          <span class="sr-only">Domů</span>
+          <%= image_tag 'home.png', class: 'h-8 w-auto' %>
+        <% end %>
+      </div>
+      <div class="hidden lg:flex lg:gap-x-12">
+        <%= link_to "About Us", about_path, class: "text-sm/6 font-semibold text-gray-900"%>
+        <%= link_to "Pricing", products_path, class: "text-sm/6 font-semibold text-gray-900"%>
+        <script>
+        document.addEventListener("turbo:load", function() {
+          let locale = "<%= I18n.locale %>"; 
+      
+          const localeContainer = document.getElementById("locale-switcher");
+          localeContainer.innerHTML = ""; // Clear previous links
+      
+          if (locale === "en") {
+            localeContainer.innerHTML = '<%= j link_to "Change to Spanish", change_locale_path(locale: "es"), class: "locale-link" %>';
+          } else if (locale === "es") {
+            localeContainer.innerHTML = '<%= j link_to "Change to English", change_locale_path(locale: "en"), class: "locale-link" %>';
+          }
+        });
+      </script>
+      
+      <div id="locale-switcher"></div>
+
+      </div>
+      <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+        <% if I18n.locale == "en" %>
+          <%= link_to "English", change_locale_path(locale: 'en') %>
+        <% end %>
+      <% if admin_signed_in? %>
+        <div class="flex items-center">
+          <%= button_to "Log out", destroy_admin_session_path, method: :delete, class: "text-red-600" %>
+        </div>
+      <% end %>
+    </div>
+      <div class="lg:hidden">
+        <!-- Mobile menu open button -->
+        <button id="open-menu" type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
+          <span class="sr-only">Open menu</span>
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 5.25h16.5m-16.5 7h16.5m-16.5 7h16.5" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="lg:hidden fixed inset-0 z-50 hidden" id="mobile-menu" role="dialog" aria-modal="true">
+      <div class="fixed inset-0 bg-gray-500 bg-opacity-75"></div>
+      <div class="fixed inset-y-0 right-0 w-full max-w-sm bg-white px-6 py-6 sm:ring-1 sm:ring-gray-900/10">
+        <div class="flex items-center justify-between">
+        <%= link_to root_path, class: "-m-1.5 p-1.5" do %>
+          <span class="sr-only">Domů</span>
+          <%= image_tag 'home.png', class: 'h-8 w-auto' %>
+        <% end %>
+          <!-- Mobile menu close button -->
+          <button id="close-menu" type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+            <span class="sr-only">Close menu</span>
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <div class="mt-6 flow-root">
+          <div class="-my-6 divide-y divide-gray-500/10">
+            <div class="space-y-2 py-6">
+              <%= link_to "About Us", about_path,  class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"%>
+              <%= link_to "Pricing", products_path,  class: "-mx-3 block rounded-lg px-3 py-2 text-base font-semibold text-gray-900 hover:bg-gray-50"%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
