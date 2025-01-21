@@ -16,7 +16,7 @@
           let locale = "<%= I18n.locale %>"; 
       
           const localeContainer = document.getElementById("locale-switcher");
-          localeContainer.innerHTML = ""; // Clear previous links
+          localeContainer.innerHTML = ""; 
       
           if (locale === "en") {
             localeContainer.innerHTML = '<%= j link_to "Change to Spanish", change_locale_path(locale: "es"), class: "locale-link" %>';
@@ -25,6 +25,14 @@
           }
         });
       </script>
+      #ruby script
+      ##<% if I18n.locale == "es" %>
+          ##<%= link_to "English", change_locale_path(locale: 'en') %>
+        ##<% else %>
+         ## <%= link_to "Spanish", change_locale_path(locale: 'es') %>
+        ##<% end %>
+
+
       
       <div id="locale-switcher"></div>
 
